@@ -14,11 +14,18 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Build Mod for Android
-      uses: geode-sdk/build-geode-mod@main
+    - name: Setup Geode CLI
+      uses: geode-sdk/setup-geode-cli@v2
+      with:
+        android-sdk: true
+
+    - name: Compile Mod for Android
+      run: |
+        geode sdk install-binaries -p android64
+        geode build -p android64 --ninja
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: geode-mod-files
-        path: "**/*.geode"
+        path: "build-android64/*.geode"
