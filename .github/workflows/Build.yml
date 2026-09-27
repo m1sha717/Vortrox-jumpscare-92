@@ -12,4 +12,5 @@ jobs:
       - name: Build Mod
         uses: geode-sdk/build-geode-mod@main
         with:
+          platform: Android
           target: Android
