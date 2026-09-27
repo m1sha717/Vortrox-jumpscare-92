@@ -9,21 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Install Geode CLI
-        run: |
-          python3 -m pip install --upgrade geode-cli
-          geode sdk install
-          geode sdk install-binaries -p android64
-
-      - name: Set up CMake & Ninja
-        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
-
       - name: Build Mod
-        run: |
-          geode build --platform android64
+        uses: geode-sdk/build-geode-mod@v2
+        with:
+          target: Android
