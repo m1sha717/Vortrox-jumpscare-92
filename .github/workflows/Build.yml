@@ -13,4 +13,3 @@ jobs:
         uses: geode-sdk/build-geode-mod@main
         with:
           target: Android
-          android-abi: arm64-v8a
