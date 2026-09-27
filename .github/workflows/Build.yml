@@ -1,4 +1,3 @@
-
 name: Build Geode Mod
 
 on:
@@ -8,41 +7,18 @@ on:
 
 jobs:
   build:
-    name: Build ${{ matrix.config.name }}
-    runs-on: ${{ matrix.config.os }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - name: Android
-            os: ubuntu-latest
-            target: android
-          - name: Windows
-            os: windows-latest
-            target: win
+    name: Build Mod
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
-
-    - name: Build Mod
+    - name: Build Mod for Android
       uses: geode-sdk/build-geode-mod@main
-      with:
-        target: ${{ matrix.config.target }}
-        # Принудительно настраиваем сборку через xmake вместо CMake
-        build-config: Release
-        cli: latest
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: geode-mod-${{ matrix.config.target }}
-        path: |
-          build/**/*.geode
-          **/*.geode
+        name: geode-mod-files
+        path: "**/*.geode"
