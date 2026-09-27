@@ -1,0 +1,30 @@
+name: Build Geode Mod
+
+on:
+  push:
+      branches:
+            - main
+
+            jobs:
+              build:
+                  strategy:
+                        fail-fast: false
+                              matrix:
+                                      config:
+                                                - name: Android 64-bit
+                                                            target: Android
+                                                                        abi: arm64-v8a
+                                                                                    id: android64
+
+                                                                                        name: ${{ matrix.config.name }}
+                                                                                            runs-on: ubuntu-latest
+
+                                                                                                steps:
+                                                                                                      - uses: actions/checkout@v4
+
+                                                                                                            - name: Build Mod
+                                                                                                                    uses: geode-sdk/build-geode-mod@main
+                                                                                                                            with:
+                                                                                                                                      target: ${{ matrix.config.target }}
+                                                                                                                                                android-abi: ${{ matrix.config.abi }}
+                                                                                                                                                

@@ -1,0 +1,18 @@
+{
+        "geode": "4.0.0",
+            "id": "misha717.vortrox_92",
+                "version": "1.0.0",
+                    "name": "Vortrox 92 Percent Jumpscare",
+                        "developer": "misha717",
+                            "description": "Vine Boom и Вортрокс на 92%!",
+                                "resources": {
+                                        "sprites": [
+                                                    "resources/*.png"
+                                                            ],
+                                                                    "files": [
+                                                                                "resources/*.mp3"
+                                                                                        ]
+                                                                                            }
+                                                                                            }
+                                                                                            
+}
