@@ -16,6 +16,8 @@ jobs:
 
     - name: Build Mod for Android
       uses: geode-sdk/build-geode-mod@main
+      with:
+        target: android
     
       continue-on-error: true
 
