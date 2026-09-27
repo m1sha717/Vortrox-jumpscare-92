@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 3.26)
 
 set(GEODE_DONT_INSTALL_BINARIES ON)
 
-
-find_package(Geode REQUIRED CONFIG PATHS /home/runner/.config/Geode/sdk)
+find_package(Geode REQUIRED CONFIG)
 
 project(vortrox_92_jumpscare VERSION 1.0.0 LANGUAGES CXX)
 
