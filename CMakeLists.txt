@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.26)
 
-setting(GEODE_DONT_INSTALL_BINARIES ON)
+set(GEODE_DONT_INSTALL_BINARIES ON)
 
 find_package(Geode REQUIRED CONFIG PATHS /home/vscode/.config/Geode/sdk)
 
