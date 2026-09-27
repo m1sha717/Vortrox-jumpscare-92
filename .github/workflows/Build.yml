@@ -13,10 +13,9 @@ jobs:
         uses: geode-sdk/build-geode-mod@main
         with:
           bindings-ref: main
-          target: Android
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: vortrox-jumpscare-android
-          path: "**/*.geode"
+          path: build/*.geode
