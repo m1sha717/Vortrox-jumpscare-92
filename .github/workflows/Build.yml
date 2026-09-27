@@ -1,21 +1,31 @@
 name: Build Geode Mod
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
-    name: Android Build
+    name: Build Mod
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build Mod
-        uses: geode-sdk/build-geode-mod@main
-        with:
-          bindings-ref: main
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: vortrox-jumpscare-android
-          path: build/*.geode
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Geode CLI
+      uses: geode-sdk/setup-geode-cli@v2
+      with:
+        android-sdk: true
+
+    - name: Build Android 64-bit
+      run: |
+        geode sdk install-binaries -p android64
+        geode build -p android64 --ninja
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: geode-mod-android
+        path: build-android64/*.geode
