@@ -16,9 +16,6 @@ jobs:
 
     - name: Build Mod for Android
       uses: geode-sdk/build-geode-mod@main
-      with:
-        # Принудительно отключаем CMake и переводим сборку на Xmake
-        build-config: Release
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
